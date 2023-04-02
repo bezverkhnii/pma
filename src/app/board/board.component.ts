@@ -24,7 +24,11 @@ export class BoardComponent {
   taskPopup:any;
   language:any = localStorage.getItem('language')
   ngOnInit() {
-    this.translate.use(this.language)
+    if(this.language !== 'en'){
+      this.translate.use(this.language);
+    } else {
+      this.translate.use('en');
+    }
     const popup = document.getElementById('popup');
     const taskPopup = document.getElementById('taskPopup');
     this.popUp = popup;
@@ -35,7 +39,6 @@ export class BoardComponent {
     .then(response => response.json())
     .then(data => {
       this.board = data;
-      console.log(data);
     })
     .catch(error => console.log(error));
 
@@ -43,13 +46,11 @@ export class BoardComponent {
     .then(response => response.json())
     .then(data => {
       this.columns = data;
-      console.log(this.columns);
       for(let i = 0; i < this.columns.length; i++){
         fetch(`https://boiling-dusk-17255.herokuapp.com/boards/${id}/columns/${this.columns[i]._id}/tasks`, { headers:{ Authorization:`Bearer ${token}`}})
         .then(response => response.json())
         .then(data =>{
           this.columns[i].tasks = data;
-          console.log(this.columns[i].tasks)
         })
         .catch(err => console.error(err))
       }
@@ -91,7 +92,6 @@ export class BoardComponent {
   columnId!: string;
 
   createColumn(){
-    console.log(this.Column.value);
     this.service.createColumn(this.board._id, this.Column.value)
     location.reload();
   }

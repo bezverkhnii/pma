@@ -15,9 +15,6 @@ export class SideNavComponent {
   }
 
   
-  // isChecked: boolean = false;
-
-  
   switchLang(lang:string){
     localStorage.setItem('language',lang);
     location.reload();

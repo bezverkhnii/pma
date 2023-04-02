@@ -23,7 +23,11 @@ export class BoardpageComponent implements OnInit {
 
   ngOnInit(){
     this.customerService.getTasks();
-    this.translate.use(this.language)
+    if(this.language !== 'en'){
+      this.translate.use(this.language);
+    } else {
+      this.translate.use('en');
+    }
     const token = localStorage.getItem('token')
     function parseJwt (token: any) {
       var base64Url = token.split('.')[1];

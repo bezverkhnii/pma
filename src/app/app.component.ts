@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,4 +10,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'PMApp';
 
+  constructor(public translate: TranslateService){
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
+    translate.use('en')
+  }
 }

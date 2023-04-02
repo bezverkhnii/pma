@@ -27,8 +27,13 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(){
     this.initForm()
-    this.translate.use(this.language)
     localStorage.setItem('language', 'en');
+    this.translate.use(this.language)
+    if(this.language !== 'en'){
+      this.translate.use(this.language);
+    } else {
+      this.translate.use('en');
+    }
     const token = localStorage.getItem('token')
     function parseJwt (token: any) {
       var base64Url = token.split('.')[1];

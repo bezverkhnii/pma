@@ -18,7 +18,11 @@ export class CreateBoardComponent implements OnInit {
 
   language:any = localStorage.getItem('language');
   ngOnInit(){
-    this.translate.use(this.language)
+    if(this.language !== 'en'){
+      this.translate.use(this.language);
+    } else {
+      this.translate.use('en');
+    }
   }
   token = localStorage.getItem('token');
 
@@ -42,8 +46,6 @@ export class CreateBoardComponent implements OnInit {
 
   createBoard(){
     if (this.Board.valid) {
-      console.log(this.route.snapshot.params['id'])
-      console.log(this.Board.value)
       this.service.createBoard(this.Board.value);
       location.reload();
     }

@@ -17,7 +17,11 @@ export class TodaysTaskComponent implements OnInit {
   language:any = localStorage.getItem('language');
 
   ngOnInit(){
-    this.translate.use(this.language);
+    if(this.language !== 'en'){
+      this.translate.use(this.language);
+    } else {
+      this.translate.use('en');
+    }
   }
 
 

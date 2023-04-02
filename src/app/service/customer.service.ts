@@ -155,7 +155,6 @@ export class CustomerService {
       idArr.push(board._id)
       this.boards.push(board)
     }
-    console.log(idArr)
     }catch (error){
       console.log(error)
     }
@@ -167,7 +166,6 @@ export class CustomerService {
           colIds.push(column._id);
         }
       }
-      console.log(colIds)
     }catch (error){
       console.log(error)
     }
@@ -190,8 +188,6 @@ export class CustomerService {
       this.tasks = this.tasks.filter((item:string, index:number) => {
         return this.tasks.indexOf(item) === index;
       }).filter((e:any) => e.length !== 0).flat()
-      console.log(this.tasks);
-      console.log(this.boards);
     }catch (error){
       console.log(error)
     }

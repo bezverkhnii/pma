@@ -16,8 +16,11 @@ export class AllTasksComponent implements OnInit{
   tasks: any;
   async ngOnInit(){
     await this.service.getTasks();
-    this.translate.use(this.language);
+    if(this.language !== 'en'){
+      this.translate.use(this.language);
+    } else {
+      this.translate.use('en');
+    }
     this.tasks = this.service.tasks;
-    console.log(this.tasks);
   }
 }
