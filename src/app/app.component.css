@@ -3,3 +3,24 @@ body{
     height:100vh;
     overflow: auto;
 }
+
+.divider{
+    height: 10px;
+    width:100%;
+    background-color: rgb(23,31,57);
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(247,245,244);
+    padding:2rem 0 2rem 0; 
+}
+
+.course-logo{
+    width: 15%;
+}
+
+.gh-logo{
+    width:6%;
+}
