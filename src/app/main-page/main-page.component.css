@@ -191,6 +191,22 @@ app-side-nav{
 
 
 @media screen and (max-width: 440px) {
+    .welcome-container{
+        padding-left: 7rem;
+    }
+
+    .welcome-container h1{
+        font-size: 1.6rem;
+    }
+    
+    .welcome-container h3{
+        font-size: 1.3rem;
+    }
+
+    .main{
+        padding-left: 2rem;
+    }
+
     ::ng-deep .mat-grid-list mat-grid-tile{
         height: 250px !important;
         width: 230px !important;
